@@ -102,7 +102,7 @@ Detalhes e convenção de commits em [CONTRIBUTING.md](CONTRIBUTING.md). Histór
 
 ## Publicação
 
-O workflow `.github/workflows/deploy.yml` executa testes, gera o `dist/` e publica no GitHub Pages a cada tag `v*` enviada ao repositório. Passo a passo em [docs/PUBLICACAO.md](docs/PUBLICACAO.md).
+O workflow `.github/workflows/deploy.yml` executa testes, gera o `dist/` e publica no GitHub Pages a cada push em `main` (ou seja, a cada merge de release ou hotfix). Passo a passo em [docs/PUBLICACAO.md](docs/PUBLICACAO.md).
 
 ## Aviso sobre dados pessoais
 
