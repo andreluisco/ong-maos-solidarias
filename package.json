@@ -1,6 +1,6 @@
 {
   "name": "ong-maos-solidarias",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Plataforma web da ONG Mãos Solidárias (SPA em JavaScript puro)",
   "type": "module",
   "private": true,

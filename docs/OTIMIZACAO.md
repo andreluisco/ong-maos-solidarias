@@ -8,7 +8,7 @@ Ferramentas: **esbuild** (JavaScript e CSS) e **html-minifier-terser** (HTML). O
 
 | Arquivo | Original | Minificado | gzip | Redução |
 |---|---|---|---|---|
-| JavaScript (8 módulos ES → `main.min.js`) | 24,4 KB | 14,9 KB | 5,8 KB | 39% |
+| JavaScript (8 módulos ES → `main.min.js`) | 25,1 KB | 15,3 KB | 6,0 KB | 39% |
 | CSS (`reset.css` + `style.css` → `style.min.css`) | 24,2 KB | 17,7 KB | 4,1 KB | 27% |
 | HTML (shell da SPA) | 2,2 KB | 2,0 KB | 1,0 KB | 10% |
 
@@ -62,9 +62,9 @@ Limite conhecido: não há versões 2x e 3x dedicadas para celulares de alta den
 
 | Recurso | Sem otimização | Com otimização |
 |---|---|---|
-| HTML + CSS + JS | 50,8 KB | 10,9 KB (gzip) |
+| HTML + CSS + JS | 51,5 KB | 11,1 KB (gzip) |
 | Imagem principal | 66,2 KB (JPG) | 16,5 KB (WebP) |
 | Logotipo | 41,0 KB (PNG) | 6,3 KB (WebP) |
-| **Total aproximado** | **158,0 KB** | **33,7 KB** |
+| **Total aproximado** | **158,7 KB** | **33,9 KB** |
 
-Redução de cerca de 79% no peso inicial (calculado a partir dos tamanhos dos arquivos, sem contar cabeçalhos HTTP).
+Redução de cerca de 79% no peso inicial (calculado a partir dos tamanhos dos arquivos, sem contar cabeçalhos HTTP). Em janela de até 640px com densidade 1x, a imagem principal cai para 7,8 KB e o total para cerca de 25,2 KB (redução de 84%).
