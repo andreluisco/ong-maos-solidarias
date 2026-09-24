@@ -47,10 +47,15 @@ export const UFS = [
   ['SP', 'São Paulo'], ['SE', 'Sergipe'], ['TO', 'Tocantins'],
 ];
 
-const img = (nome, alt, largura, altura) => html`
+/**
+ * Imagem responsiva: WebP com JPG de reserva. A imagem principal (acima da dobra)
+ * carrega com prioridade alta; as demais usam lazy loading para poupar dados.
+ */
+const img = (nome, alt, largura, altura, principal = false) => html`
   <picture>
     <source srcset="../assets/imagens/${nome}.webp" type="image/webp">
-    <img src="../assets/imagens/${nome}.jpg" alt="${alt}" width="${largura}" height="${altura}">
+    <img src="../assets/imagens/${nome}.jpg" alt="${alt}" width="${largura}" height="${altura}" decoding="async"
+      ${new Seguro(principal ? 'fetchpriority="high"' : 'loading="lazy"')}>
   </picture>`;
 
 /* ---------- Componentes reutilizáveis ---------- */
@@ -71,7 +76,7 @@ export function home() {
       <section class="col-12 col-lg-8" aria-labelledby="titulo-missao">
         <h1 id="titulo-missao">Transformando vidas com solidariedade</h1>
         <figure>
-          ${img('voluntarios-horta', 'Voluntários plantando mudas em uma horta comunitária', 640, 360)}
+          ${img('voluntarios-horta', 'Voluntários plantando mudas em uma horta comunitária', 640, 360, true)}
           <figcaption>Mutirão da horta comunitária, 2025.</figcaption>
         </figure>
         <p>Transformamos vidas por meio de educação, alimentação e cidadania para famílias em situação de vulnerabilidade.</p>
