@@ -2,6 +2,12 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [1.0.3] - 2026-09-24
+
+### Corrigido
+
+- Deploy no GitHub Pages: o workflow disparado por tag (`v*`) falhava na v1.0.2 porque o ambiente `github-pages` só aceita deploys da branch `main`. O deploy agora dispara em push na `main` (merge de release ou hotfix). Documentação atualizada.
+
 ## [1.0.2] - 2026-09-24
 
 ### Adicionado

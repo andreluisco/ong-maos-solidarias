@@ -4,8 +4,8 @@ Hospedagem escolhida: **GitHub Pages**, por ser gratuita para repositórios púb
 
 ## Fluxo
 
-1. A release é mesclada em `main` e recebe uma tag `vX.Y.Z`.
-2. O envio da tag dispara `.github/workflows/deploy.yml`.
+1. A release (ou hotfix) é mesclada em `main` por Pull Request e recebe uma tag `vX.Y.Z` e uma GitHub Release.
+2. O push em `main` dispara `.github/workflows/deploy.yml`. O disparo por tag foi abandonado porque o ambiente `github-pages` só aceita deploys da branch `main` e rejeitava a tag (falha observada na v1.0.2).
 3. O workflow roda `npm ci`, `npm test` e `npm run build` (se um teste falhar, nada é publicado).
 4. A pasta `dist/` é enviada como artefato e publicada no GitHub Pages.
 
@@ -24,19 +24,18 @@ Verificação feita na URL publicada em 23/09/2026: respostas HTTP 200 com `Cont
 # 1. Criar o repositório remoto e enviar as branches e tags
 gh repo create ong-maos-solidarias --public --source=. --remote=origin
 git push -u origin main develop
-git push origin --tags
+git push origin --tags   # opcional: publica as tags
 ```
 
 2. No repositório, abrir **Settings > Pages** e escolher **Source: GitHub Actions**.
-3. Reenviar a tag (ou rodar o workflow manualmente em **Actions > Deploy no GitHub Pages > Run workflow**).
+3. Rodar o workflow manualmente em **Actions > Deploy no GitHub Pages > Run workflow** (ou fazer um push em `main`).
 
 ## Publicar uma nova versão
 
-```bash
-git checkout main && git pull
-git tag -a v1.1.0 -m "Versão 1.1.0"
-git push origin v1.1.0
-```
+1. Abrir o Pull Request `release/X.Y.Z` para `main` e aguardar o CI.
+2. Ao mesclar, o deploy roda sozinho (aba **Actions**).
+3. Criar a tag e a Release: `gh release create vX.Y.Z --target main --notes-file <notas>`.
+4. Fazer o back-merge de `main` em `develop`.
 
 ## Verificação pós-deploy
 
