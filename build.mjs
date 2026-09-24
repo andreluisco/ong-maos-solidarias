@@ -33,10 +33,10 @@ await build({
   outfile: 'dist/assets/js/main.min.js',
 });
 const fontesJs = await Promise.all(
-  ['main', 'modules/router', 'modules/templates', 'modules/validation', 'modules/storage', 'modules/ui', 'modules/formulario']
+  ['main', 'modules/router', 'modules/templates', 'modules/validation', 'modules/storage', 'modules/ui', 'modules/formulario', 'modules/tema']
     .map((n) => readFile(`assets/js/${n}.js`)),
 );
-await medir('JavaScript (7 módulos)', fontesJs, 'dist/assets/js/main.min.js');
+await medir('JavaScript (8 módulos)', fontesJs, 'dist/assets/js/main.min.js');
 
 /* 2) CSS: concatena reset + estilos e minifica */
 const fontesCss = await Promise.all(['reset', 'style'].map((n) => readFile(`assets/css/${n}.css`, 'utf8')));

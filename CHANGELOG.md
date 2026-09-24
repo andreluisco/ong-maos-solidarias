@@ -2,6 +2,22 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [1.1.0] - 2026-09-24
+
+### Adicionado
+
+- **Tema escuro:** segue a preferência do sistema (`prefers-color-scheme`) e ganhou o botão **Modo escuro** no menu, com `aria-pressed` e escolha salva no `localStorage`. Contraste verificado (menor razão de texto: 5,02:1) e axe-core com 0 violações nos dois temas (#17).
+- Módulo `tema.js` com funções puras testadas; 4 novos testes (total de 13).
+
+### Alterado
+
+- Cores de componentes (alertas, badges, toast, títulos e tintas de erro) passaram a ser tokens semânticos, sem mudança visual no tema claro.
+- `docs/ACESSIBILIDADE.md` documenta o tema escuro, a tabela de contraste e o método de medição.
+
+### Corrigido
+
+- `build.mjs` não incluía `tema.js` no relatório de tamanhos; agora mede os 8 módulos.
+
 ## [1.0.3] - 2026-09-24
 
 ### Corrigido

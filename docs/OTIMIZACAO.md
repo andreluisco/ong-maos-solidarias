@@ -8,13 +8,13 @@ Ferramentas: **esbuild** (JavaScript e CSS) e **html-minifier-terser** (HTML). O
 
 | Arquivo | Original | Minificado | gzip | Redução |
 |---|---|---|---|---|
-| JavaScript (7 módulos ES → `main.min.js`) | 22,6 KB | 14,3 KB | 5,6 KB | 37% |
-| CSS (`reset.css` + `style.css` → `style.min.css`) | 20,5 KB | 14,8 KB | 3,6 KB | 28% |
-| HTML (shell da SPA) | 1,8 KB | 1,6 KB | 0,8 KB | 11% |
+| JavaScript (8 módulos ES → `main.min.js`) | 24,4 KB | 14,9 KB | 5,8 KB | 39% |
+| CSS (`reset.css` + `style.css` → `style.min.css`) | 24,2 KB | 17,7 KB | 4,1 KB | 27% |
+| HTML (shell da SPA) | 2,2 KB | 2,0 KB | 1,0 KB | 10% |
 
 O que o build faz:
 
-1. **JavaScript:** agrupa (`bundle`) os 7 módulos em um único arquivo, elimina comentários e espaços, encurta nomes locais e gera `main.min.js.map` para depuração. Uma requisição no lugar de sete.
+1. **JavaScript:** agrupa (`bundle`) os 8 módulos em um único arquivo, elimina comentários e espaços, encurta nomes locais e gera `main.min.js.map` para depuração. Uma requisição no lugar de oito.
 2. **CSS:** junta o reset e os estilos em um arquivo minificado (uma requisição no lugar de duas).
 3. **HTML:** remove comentários e espaços e aponta para os arquivos `.min`.
 4. **Ativos:** copia `assets/imagens/` para `dist/`.
@@ -47,9 +47,9 @@ Práticas aplicadas no HTML gerado pelos templates:
 
 | Recurso | Sem otimização | Com otimização |
 |---|---|---|
-| HTML + CSS + JS | 44,9 KB | 10,0 KB (gzip) |
+| HTML + CSS + JS | 50,8 KB | 10,9 KB (gzip) |
 | Imagem principal | 66,2 KB (JPG) | 16,5 KB (WebP) |
 | Logotipo | 41,0 KB (PNG) | 6,3 KB (WebP) |
-| **Total aproximado** | **152,1 KB** | **32,8 KB** |
+| **Total aproximado** | **158,0 KB** | **33,7 KB** |
 
-Redução de cerca de 78% no peso inicial (calculado a partir dos tamanhos dos arquivos, sem contar cabeçalhos HTTP).
+Redução de cerca de 79% no peso inicial (calculado a partir dos tamanhos dos arquivos, sem contar cabeçalhos HTTP).
