@@ -427,3 +427,158 @@ button:disabled,
   transform: none;
 }
 
+/* 8. Sistema de grade de 12 colunas (CSS Grid) --------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--esp-4);
+}
+
+/* Mobile-first: por padrão, todo bloco ocupa as 12 colunas */
+.grid > * { grid-column: span 12; }
+
+.grid > .col-1 { grid-column: span 1; }
+.grid > .col-2 { grid-column: span 2; }
+.grid > .col-3 { grid-column: span 3; }
+.grid > .col-4 { grid-column: span 4; }
+.grid > .col-5 { grid-column: span 5; }
+.grid > .col-6 { grid-column: span 6; }
+.grid > .col-7 { grid-column: span 7; }
+.grid > .col-8 { grid-column: span 8; }
+.grid > .col-9 { grid-column: span 9; }
+.grid > .col-10 { grid-column: span 10; }
+.grid > .col-11 { grid-column: span 11; }
+.grid > .col-12 { grid-column: span 12; }
+
+/* 9. Pontos de quebra (min-width, mobile-first) ------------- */
+
+/* 480px: celulares grandes / paisagem */
+@media (min-width: 480px) {
+  .grid > .col-sm-1 { grid-column: span 1; }
+  .grid > .col-sm-2 { grid-column: span 2; }
+  .grid > .col-sm-3 { grid-column: span 3; }
+  .grid > .col-sm-4 { grid-column: span 4; }
+  .grid > .col-sm-5 { grid-column: span 5; }
+  .grid > .col-sm-6 { grid-column: span 6; }
+  .grid > .col-sm-7 { grid-column: span 7; }
+  .grid > .col-sm-8 { grid-column: span 8; }
+  .grid > .col-sm-9 { grid-column: span 9; }
+  .grid > .col-sm-10 { grid-column: span 10; }
+  .grid > .col-sm-11 { grid-column: span 11; }
+  .grid > .col-sm-12 { grid-column: span 12; }
+}
+
+/* 768px: tablets */
+@media (min-width: 768px) {
+  .grid > .col-md-1 { grid-column: span 1; }
+  .grid > .col-md-2 { grid-column: span 2; }
+  .grid > .col-md-3 { grid-column: span 3; }
+  .grid > .col-md-4 { grid-column: span 4; }
+  .grid > .col-md-5 { grid-column: span 5; }
+  .grid > .col-md-6 { grid-column: span 6; }
+  .grid > .col-md-7 { grid-column: span 7; }
+  .grid > .col-md-8 { grid-column: span 8; }
+  .grid > .col-md-9 { grid-column: span 9; }
+  .grid > .col-md-10 { grid-column: span 10; }
+  .grid > .col-md-11 { grid-column: span 11; }
+  .grid > .col-md-12 { grid-column: span 12; }
+  .marca {
+    flex: 0 1 auto;
+    font-size: var(--fs-lg);
+  }
+
+  main h1 { font-size: var(--fs-2xl); }
+
+  header img { width: 4.5rem; height: 4.5rem; }
+
+  /* Desktop: some o hambúrguer e o menu fica sempre visível na horizontal */
+  .menu-toggle,
+  .menu-btn { display: none; }
+
+  header nav { flex-basis: auto; }
+
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: none;
+    overflow: visible;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Dropdown: escondido até hover ou foco por teclado */
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    min-width: 14rem;
+    padding: var(--esp-2);
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .tem-submenu:hover > .submenu,
+  .tem-submenu:focus-within > .submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 1024px: notebooks */
+@media (min-width: 1024px) {
+  .grid > .col-lg-1 { grid-column: span 1; }
+  .grid > .col-lg-2 { grid-column: span 2; }
+  .grid > .col-lg-3 { grid-column: span 3; }
+  .grid > .col-lg-4 { grid-column: span 4; }
+  .grid > .col-lg-5 { grid-column: span 5; }
+  .grid > .col-lg-6 { grid-column: span 6; }
+  .grid > .col-lg-7 { grid-column: span 7; }
+  .grid > .col-lg-8 { grid-column: span 8; }
+  .grid > .col-lg-9 { grid-column: span 9; }
+  .grid > .col-lg-10 { grid-column: span 10; }
+  .grid > .col-lg-11 { grid-column: span 11; }
+  .grid > .col-lg-12 { grid-column: span 12; }
+  header { flex-wrap: nowrap; }
+}
+
+/* 1280px: desktops */
+@media (min-width: 1280px) {
+  .grid > .col-xl-1 { grid-column: span 1; }
+  .grid > .col-xl-2 { grid-column: span 2; }
+  .grid > .col-xl-3 { grid-column: span 3; }
+  .grid > .col-xl-4 { grid-column: span 4; }
+  .grid > .col-xl-5 { grid-column: span 5; }
+  .grid > .col-xl-6 { grid-column: span 6; }
+  .grid > .col-xl-7 { grid-column: span 7; }
+  .grid > .col-xl-8 { grid-column: span 8; }
+  .grid > .col-xl-9 { grid-column: span 9; }
+  .grid > .col-xl-10 { grid-column: span 10; }
+  .grid > .col-xl-11 { grid-column: span 11; }
+  .grid > .col-xl-12 { grid-column: span 12; }
+}
+
+/* 1536px: monitores panorâmicos */
+@media (min-width: 1536px) {
+  .grid > .col-xxl-1 { grid-column: span 1; }
+  .grid > .col-xxl-2 { grid-column: span 2; }
+  .grid > .col-xxl-3 { grid-column: span 3; }
+  .grid > .col-xxl-4 { grid-column: span 4; }
+  .grid > .col-xxl-5 { grid-column: span 5; }
+  .grid > .col-xxl-6 { grid-column: span 6; }
+  .grid > .col-xxl-7 { grid-column: span 7; }
+  .grid > .col-xxl-8 { grid-column: span 8; }
+  .grid > .col-xxl-9 { grid-column: span 9; }
+  .grid > .col-xxl-10 { grid-column: span 10; }
+  .grid > .col-xxl-11 { grid-column: span 11; }
+  .grid > .col-xxl-12 { grid-column: span 12; }
+  :root { --largura-max: 88rem; }
+}
+
