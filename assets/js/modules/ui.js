@@ -5,7 +5,8 @@ export function mostrarToast(mensagem, tipo = 'sucesso', duracao = 5000) {
   const area = document.querySelector('#area-toasts');
   const toast = document.createElement('div');
   toast.className = `toast toast-${tipo}`;
-  toast.setAttribute('role', tipo === 'erro' ? 'alert' : 'status');
+  /* O contêiner #area-toasts já é uma região live; só erros pedem role=alert (evita leitura duplicada). */
+  if (tipo === 'erro') toast.setAttribute('role', 'alert');
   toast.innerHTML = `<span>${escapar(mensagem)}</span>`;
 
   const fechar = document.createElement('button');
@@ -28,6 +29,13 @@ export function mostrarAlerta(seletor, mensagem, tipo = 'erro') {
 export function limparAlerta(seletor) {
   const alvo = document.querySelector(seletor);
   if (alvo) alvo.replaceChildren();
+}
+
+/** Anuncia a nova tela para leitores de tela (WCAG 4.1.3 Mensagens de status). */
+export function anunciarRota(titulo) {
+  const regiao = document.querySelector('#anuncio-rota');
+  regiao.textContent = '';
+  window.setTimeout(() => { regiao.textContent = `Página carregada: ${titulo}`; }, 50);
 }
 
 /** Marca o link do menu da rota atual com aria-current="page". */

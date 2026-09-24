@@ -18,6 +18,8 @@
   --cor-fundo: #f7faf8;
   --cor-superficie: #ffffff;
   --cor-borda: #cbd2d9;
+  --cor-borda-forte: #6b7785; /* bordas de controles: 3:1 mínimo (WCAG 1.4.11) */
+  --cor-foco: #1c5fa8; /* anel de foco: 6,2:1 sobre o fundo */
   /* Feedback */
   --cor-erro: #b42318;
   --cor-sucesso: #147d4a;
@@ -85,7 +87,7 @@ a {
 a:hover { color: var(--cor-primaria-escura); }
 
 :focus-visible {
-  outline: 3px solid var(--cor-destaque);
+  outline: 3px solid var(--cor-foco);
   outline-offset: 2px;
 }
 
@@ -181,13 +183,13 @@ nav ul {
   width: 2.75rem;
   height: 2.75rem;
   margin-left: auto;
-  border: 2px solid var(--cor-borda);
+  border: 2px solid var(--cor-borda-forte);
   border-radius: var(--raio);
   cursor: pointer;
 }
 
 .menu-toggle:focus-visible + .menu-btn {
-  outline: 3px solid var(--cor-destaque);
+  outline: 3px solid var(--cor-foco);
   outline-offset: 2px;
 }
 
@@ -347,14 +349,14 @@ select {
   font: inherit;
   color: var(--cor-texto);
   background: var(--cor-superficie);
-  border: 2px solid var(--cor-borda);
+  border: 2px solid var(--cor-borda-forte);
   border-radius: var(--raio);
 }
 
 input:not([type="radio"]):focus,
 select:focus {
   border-color: var(--cor-secundaria);
-  outline: 3px solid var(--cor-destaque);
+  outline: 3px solid var(--cor-foco);
   outline-offset: 1px;
 }
 
@@ -407,7 +409,7 @@ button:hover,
 
 button:focus-visible,
 .btn:focus-visible {
-  outline: 3px solid var(--cor-destaque);
+  outline: 3px solid var(--cor-foco);
   outline-offset: 3px;
 }
 
@@ -775,7 +777,11 @@ select[aria-invalid="false"] {
   align-items: center;
 }
 
-.tabela-rolavel { overflow-x: auto; }
+/* position: relative mantém o texto .sr-only dentro do contêiner rolável (WCAG 1.4.10, reflow a 320px) */
+.tabela-rolavel {
+  position: relative;
+  overflow-x: auto;
+}
 
 .btn-perigo {
   padding: var(--esp-2) var(--esp-3);
@@ -807,3 +813,24 @@ select[aria-invalid="false"] {
 }
 
 .toast-fechar:hover { background: transparent; box-shadow: none; }
+
+/* 12. Acessibilidade: modo de alto contraste do sistema (Windows) --------- */
+@media (forced-colors: active) {
+  .badge,
+  .alerta,
+  .toast,
+  button,
+  .btn {
+    border: 2px solid CanvasText;
+  }
+
+  .icone-menu,
+  .icone-menu::before,
+  .icone-menu::after {
+    background: CanvasText;
+  }
+
+  [aria-invalid="true"] {
+    outline: 3px solid Mark;
+  }
+}

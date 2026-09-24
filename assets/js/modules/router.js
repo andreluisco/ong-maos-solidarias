@@ -33,7 +33,7 @@ export function renderizar() {
   document.title = `${rota.titulo} | Mãos Solidárias`;
   window.scrollTo(0, 0);
   contêiner.focus({ preventScroll: true });
-  aoRenderizar(caminho);
+  aoRenderizar(caminho, rota);
 }
 
 export function navegar(caminho) {
