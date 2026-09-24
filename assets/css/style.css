@@ -726,3 +726,84 @@ a.btn-secundario:hover { color: var(--cor-superficie); }
   article:hover { transform: none; }
 }
 
+/* 11. SPA: formulário dinâmico, tabela e toasts ------------------ */
+.pular-link {
+  position: absolute;
+  top: -4rem;
+  left: var(--esp-3);
+  z-index: 40;
+  padding: var(--esp-2) var(--esp-3);
+  color: var(--cor-superficie);
+  background: var(--cor-texto);
+  border-radius: var(--raio);
+}
+
+.pular-link:focus { top: var(--esp-2); }
+
+main:focus { outline: none; }
+main h1 { margin-bottom: var(--esp-4); }
+
+.campo { display: grid; gap: var(--esp-1); }
+
+.erro {
+  min-height: 0;
+  margin: 0;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--cor-erro);
+}
+
+.erro:empty { display: none; }
+
+/* Estados definidos pelo JavaScript; seletores com elemento para vencer :user-valid/:user-invalid */
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: var(--cor-erro);
+  background: rgb(180 35 24 / 6%);
+}
+
+input[aria-invalid="false"],
+select[aria-invalid="false"] {
+  border-color: var(--cor-sucesso);
+  background: rgb(20 125 74 / 6%);
+}
+
+.opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-2) var(--esp-4);
+  align-items: center;
+}
+
+.tabela-rolavel { overflow-x: auto; }
+
+.btn-perigo {
+  padding: var(--esp-2) var(--esp-3);
+  background: var(--cor-erro);
+}
+
+.btn-perigo:hover { background: #8f1c12; }
+
+#area-toasts {
+  position: fixed;
+  right: var(--esp-4);
+  bottom: var(--esp-4);
+  z-index: 50;
+  display: grid;
+  gap: var(--esp-2);
+  max-width: min(22rem, calc(100vw - 2rem));
+}
+
+#area-toasts .toast { position: static; }
+.toast-erro { border-left-color: var(--cor-erro); }
+.toast-info { border-left-color: var(--cor-secundaria); }
+.toast-sucesso { border-left-color: var(--cor-sucesso); }
+
+.toast-fechar {
+  padding: 0 var(--esp-2);
+  font-size: var(--fs-md);
+  color: var(--cor-destaque);
+  background: transparent;
+}
+
+.toast-fechar:hover { background: transparent; box-shadow: none; }
