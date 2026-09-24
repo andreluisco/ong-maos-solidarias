@@ -775,7 +775,11 @@ select[aria-invalid="false"] {
   align-items: center;
 }
 
-.tabela-rolavel { overflow-x: auto; }
+/* position: relative mantém o texto .sr-only dentro do contêiner rolável (WCAG 1.4.10, reflow a 320px) */
+.tabela-rolavel {
+  position: relative;
+  overflow-x: auto;
+}
 
 .btn-perigo {
   padding: var(--esp-2) var(--esp-3);
