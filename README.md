@@ -14,7 +14,7 @@ Projeto acadêmico da disciplina *Desenvolvimento Front-End para Web* (Experiên
 - Formulário de cadastro com máscaras (CPF, telefone, CEP), validação em tempo real e validação real dos dígitos do CPF.
 - Rascunho salvo automaticamente e cadastros persistidos no `localStorage`.
 - Design system com variáveis CSS, grade de 12 colunas e 5 breakpoints (480, 768, 1024, 1280 e 1536 px).
-- Acessibilidade WCAG 2.1 AA (ver [docs/ACESSIBILIDADE.md](docs/ACESSIBILIDADE.md)).
+- Acessibilidade WCAG 2.1 AA, com tema escuro (automático e por botão) e suporte ao alto contraste do sistema (ver [docs/ACESSIBILIDADE.md](docs/ACESSIBILIDADE.md)).
 - Imagens em WebP com alternativa em JPG e build de produção minificado (ver [docs/OTIMIZACAO.md](docs/OTIMIZACAO.md)).
 
 ## Tecnologias
@@ -80,6 +80,7 @@ main.js ──> router.js
 - **validation.js:** máscaras e regras sem acesso ao DOM, por isso testáveis.
 - **storage.js:** único módulo que conhece as chaves do `localStorage`; sempre com `try/catch`.
 - **ui.js:** toasts, alertas, região live de anúncio de rota e destaque do menu.
+- **tema.js:** tema claro/escuro (preferência do sistema ou escolha salva).
 - **formulario.js:** eventos do formulário (`input`, `focusout`, `submit`).
 
 ## Testes
@@ -88,7 +89,7 @@ main.js ──> router.js
 npm test
 ```
 
-6 testes cobrem: CPF válido/inválido, máscaras, regras por campo, cálculo de idade, formulário completo e escape de HTML nos templates. A interface foi verificada no navegador (fluxo completo, `localStorage` corrompido, tentativa de XSS e rota inexistente) e com o axe-core (0 violações nas 5 rotas).
+13 testes cobrem: CPF válido/inválido, máscaras, regras por campo, cálculo de idade, formulário completo, escape de HTML nos templates, normalização de rotas e escolha do tema. A interface foi verificada no navegador (fluxo completo, `localStorage` corrompido, tentativa de XSS e rota inexistente) e com o axe-core (0 violações nas 5 rotas).
 
 ## Fluxo de trabalho (GitFlow)
 
