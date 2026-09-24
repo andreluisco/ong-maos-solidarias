@@ -2,6 +2,17 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [1.0.2] - 2026-09-24
+
+### Adicionado
+
+- Dependabot semanal para dependências npm e versões das GitHub Actions, com PRs abertos contra `develop` (#2).
+- Workflow de CI executável manualmente (`workflow_dispatch`) (#3).
+
+### Alterado
+
+- README com link da demonstração online, URL de clone e selo do CI; `docs/PUBLICACAO.md` com o endereço publicado e a verificação pós-deploy (#1).
+
 ## [1.0.1] - 2026-09-23
 
 ### Corrigido
