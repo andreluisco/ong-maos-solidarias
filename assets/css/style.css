@@ -89,3 +89,203 @@ a:hover { color: var(--cor-primaria-escura); }
   outline-offset: 2px;
 }
 
+/* 3. Layout geral ------------------------------------------- */
+header,
+main,
+footer {
+  width: min(100% - 2 * var(--esp-3), var(--largura-max));
+  margin-inline: auto;
+}
+
+header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-3);
+  padding-block: var(--esp-3);
+  border-bottom: 4px solid var(--cor-primaria);
+}
+
+.marca {
+  display: flex;
+  flex: 1 1 0;
+  gap: var(--esp-3);
+  align-items: center;
+  min-width: 0;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+header img { width: 3rem; height: 3rem; }
+
+main { padding-block: var(--esp-5); }
+
+main > section,
+main > aside {
+  margin-bottom: var(--esp-6);
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--esp-2) var(--esp-5);
+  padding-block: var(--esp-4);
+  border-top: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+}
+
+footer h2 { flex-basis: 100%; margin: 0; font-size: var(--fs-md); }
+footer address { flex: 1 1 16rem; font-style: normal; }
+footer p { margin: 0; }
+
+/* 4. Menu de navegação: dropdown (desktop) e hambúrguer (mobile) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+header nav { flex-basis: 100%; }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Checkbox oculto que guarda o estado aberto/fechado do menu */
+.menu-toggle {
+  position: absolute;
+  top: var(--esp-3);
+  right: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-left: auto;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+
+.menu-toggle:focus-visible + .menu-btn {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+/* Ícone hambúrguer desenhado com uma barra e dois pseudo-elementos */
+.icone-menu,
+.icone-menu::before,
+.icone-menu::after {
+  display: block;
+  width: 1.5rem;
+  height: 3px;
+  background: var(--cor-texto);
+  border-radius: 2px;
+  transition: transform 0.25s ease, top 0.25s ease, background-color 0.25s ease;
+}
+
+.icone-menu { position: relative; }
+.icone-menu::before,
+.icone-menu::after { content: ""; position: absolute; left: 0; }
+.icone-menu::before { top: -8px; }
+.icone-menu::after { top: 8px; }
+
+.menu-toggle:checked + .menu-btn .icone-menu { background: transparent; }
+.menu-toggle:checked + .menu-btn .icone-menu::before { top: 0; transform: rotate(45deg); }
+.menu-toggle:checked + .menu-btn .icone-menu::after { top: 0; transform: rotate(-45deg); }
+
+/* Mobile: menu recolhido por padrão e aberto pelo checkbox */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+}
+
+.menu-toggle:checked ~ nav .menu {
+  max-height: 30rem;
+  visibility: visible;
+  opacity: 1;
+}
+
+.submenu { padding-left: var(--esp-4); }
+
+nav a {
+  display: block;
+  padding: var(--esp-2) var(--esp-3);
+  border-radius: var(--raio);
+  color: var(--cor-texto);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background: var(--cor-primaria-clara);
+  color: var(--cor-primaria-escura);
+}
+
+nav a[aria-current="page"] {
+  background: var(--cor-primaria);
+  color: var(--cor-superficie);
+}
+
+.tem-submenu { position: relative; }
+
+/* 5. Cartões e grade de projetos (CSS Grid) ----------------- */
+.lista-cartoes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgb(31 41 51 / 18%);
+}
+
+article > * { margin-inline: var(--esp-3); }
+article > img { width: 100%; margin: 0 0 var(--esp-3); }
+article > h3 { margin-top: 0; }
+article > p:last-child { margin-top: auto; padding-bottom: var(--esp-3); }
+
+figure { margin: 0 0 var(--esp-3); }
+figure img { width: 100%; border-radius: var(--raio); }
+figcaption { font-size: var(--fs-sm); color: var(--cor-texto-suave); }
+
