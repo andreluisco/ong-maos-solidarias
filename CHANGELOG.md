@@ -2,6 +2,12 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [1.0.1] - 2026-09-23
+
+### Corrigido
+
+- Roteador: endereços com barra final ou maiúsculas (`#/projetos/`, `#/Projetos`) abriam a página 404. Agora são normalizados para a rota correta. Teste de regressão adicionado (9 testes no total).
+
 ## [1.0.0] - 2026-09-23
 
 Primeira versão publicável da plataforma.
