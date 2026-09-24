@@ -857,3 +857,103 @@ select[aria-invalid="false"] {
     outline: 3px solid Mark;
   }
 }
+
+/* 13. Tema escuro --------------------------------------------------------
+   Segue a preferência do sistema (prefers-color-scheme) e pode ser forçado
+   pelo botão "Modo escuro", que grava data-tema="escuro" ou "claro" no <html>.
+   Razões de contraste verificadas em docs/ACESSIBILIDADE.md. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="claro"]) {
+    --cor-primaria-clara: #1d3a2c;
+    --cor-secundaria: #86b8f2;
+    --cor-texto: #e8edf2;
+    --cor-texto-suave: #a7b3bf;
+    --cor-fundo: #10161b;
+    --cor-superficie: #1a222a;
+    --cor-borda: #34414c;
+    --cor-borda-forte: #8593a1;
+    --cor-foco: #86b8f2;
+    --cor-erro: #ff9d94;
+    --cor-sucesso: #5fd38d;
+    --cor-aviso: #e5ac45;
+    --cor-titulo: #7bd7a4;
+    --toast-fundo: #2b3742;
+    --toast-texto: #f2f5f8;
+    --alerta-sucesso-fundo: #12281d;
+    --alerta-info-fundo: #122338;
+    --alerta-aviso-fundo: #332a10;
+    --alerta-erro-fundo: #331715;
+    --badge-sucesso-texto: #a8e6c3;
+    --badge-sucesso-fundo: #12352a;
+    --badge-info-texto: #a9cdf5;
+    --badge-info-fundo: #14304f;
+    --badge-aviso-texto: #f2d488;
+    --badge-aviso-fundo: #3d2f0a;
+    --badge-erro-texto: #f5b5ae;
+    --badge-erro-fundo: #4a1a16;
+    --tinta-erro: rgb(255 157 148 / 12%);
+    --tinta-sucesso: rgb(95 211 141 / 12%);
+    --sombra: 0 2px 8px rgb(0 0 0 / 45%);
+    --sombra-forte: 0 6px 16px rgb(0 0 0 / 55%);
+    color-scheme: dark;
+  }
+}
+
+:root[data-tema="escuro"] {
+  --cor-primaria-clara: #1d3a2c;
+  --cor-secundaria: #86b8f2;
+  --cor-texto: #e8edf2;
+  --cor-texto-suave: #a7b3bf;
+  --cor-fundo: #10161b;
+  --cor-superficie: #1a222a;
+  --cor-borda: #34414c;
+  --cor-borda-forte: #8593a1;
+  --cor-foco: #86b8f2;
+  --cor-erro: #ff9d94;
+  --cor-sucesso: #5fd38d;
+  --cor-aviso: #e5ac45;
+  --cor-titulo: #7bd7a4;
+  --toast-fundo: #2b3742;
+  --toast-texto: #f2f5f8;
+  --alerta-sucesso-fundo: #12281d;
+  --alerta-info-fundo: #122338;
+  --alerta-aviso-fundo: #332a10;
+  --alerta-erro-fundo: #331715;
+  --badge-sucesso-texto: #a8e6c3;
+  --badge-sucesso-fundo: #12352a;
+  --badge-info-texto: #a9cdf5;
+  --badge-info-fundo: #14304f;
+  --badge-aviso-texto: #f2d488;
+  --badge-aviso-fundo: #3d2f0a;
+  --badge-erro-texto: #f5b5ae;
+  --badge-erro-fundo: #4a1a16;
+  --tinta-erro: rgb(255 157 148 / 12%);
+  --tinta-sucesso: rgb(95 211 141 / 12%);
+  --sombra: 0 2px 8px rgb(0 0 0 / 45%);
+  --sombra-forte: 0 6px 16px rgb(0 0 0 / 55%);
+  color-scheme: dark;
+}
+
+.btn-tema {
+  padding: var(--esp-2) var(--esp-3);
+  font-size: var(--fs-sm);
+  color: var(--cor-texto);
+  background: transparent;
+  border: 2px solid var(--cor-borda-forte);
+}
+
+.btn-tema:hover {
+  color: var(--cor-titulo);
+  background: var(--cor-primaria-clara);
+  box-shadow: none;
+}
+
+.btn-tema[aria-pressed="true"] {
+  color: var(--cor-sobre-cor);
+  background: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}
+
+@media (forced-colors: active) {
+  .btn-tema[aria-pressed="true"] { border-color: Highlight; }
+}
