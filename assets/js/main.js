@@ -3,6 +3,7 @@ import { definirRota, iniciarRouter, navegar } from './modules/router.js';
 import { cadastro, home, naoEncontrada, projetos, voluntarios } from './modules/templates.js';
 import { lerRascunho, listarCadastros, removerCadastro } from './modules/storage.js';
 import { iniciarFormulario } from './modules/formulario.js';
+import { iniciarTema } from './modules/tema.js';
 import { anunciarRota, marcarLinkAtivo, mostrarToast } from './modules/ui.js';
 
 definirRota('/', { titulo: 'Início', view: home });
@@ -27,4 +28,5 @@ document.querySelector('#app').addEventListener('click', (evento) => {
   navegar('/voluntarios');
 });
 
+iniciarTema();
 iniciarRouter('#app', aoRenderizar);
