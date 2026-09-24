@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Mãos Solidárias: ONG que transforma vidas com educação, alimentação e cidadania.">
   <title>Mãos Solidárias</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    /* Aplica o tema salvo antes da primeira pintura (evita o "flash" de tema errado). Chave: ver storage.js */
+    try { var t = JSON.parse(localStorage.getItem('maos-solidarias:tema')); if (t === 'claro' || t === 'escuro') document.documentElement.dataset.tema = t; } catch (e) { /* sem armazenamento */ }
+  </script>
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script type="module" src="../assets/js/main.js"></script>
@@ -24,6 +29,7 @@
         <li><a href="#/projetos" data-rota="/projetos">Projetos Sociais</a></li>
         <li><a href="#/voluntarios" data-rota="/voluntarios">Voluntários</a></li>
         <li><a href="#/cadastro" data-rota="/cadastro">Seja voluntário</a></li>
+        <li><button type="button" id="alternar-tema" class="btn-tema" aria-pressed="false">Modo escuro</button></li>
       </ul>
     </nav>
   </header>
