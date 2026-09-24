@@ -15,7 +15,7 @@ Projeto acadêmico da disciplina *Desenvolvimento Front-End para Web* (Experiên
 - Rascunho salvo automaticamente e cadastros persistidos no `localStorage`.
 - Design system com variáveis CSS, grade de 12 colunas e 5 breakpoints (480, 768, 1024, 1280 e 1536 px).
 - Acessibilidade WCAG 2.1 AA, com tema escuro (automático e por botão) e suporte ao alto contraste do sistema (ver [docs/ACESSIBILIDADE.md](docs/ACESSIBILIDADE.md)).
-- Imagens em WebP com alternativa em JPG e build de produção minificado (ver [docs/OTIMIZACAO.md](docs/OTIMIZACAO.md)).
+- Imagens WebP responsivas (`srcset`/`sizes`) com alternativa em JPG e build de produção minificado (ver [docs/OTIMIZACAO.md](docs/OTIMIZACAO.md)).
 
 ## Tecnologias
 
@@ -89,7 +89,7 @@ main.js ──> router.js
 npm test
 ```
 
-13 testes cobrem: CPF válido/inválido, máscaras, regras por campo, cálculo de idade, formulário completo, escape de HTML nos templates, normalização de rotas e escolha do tema. A interface foi verificada no navegador (fluxo completo, `localStorage` corrompido, tentativa de XSS e rota inexistente) e com o axe-core (0 violações nas 5 rotas).
+16 testes cobrem: CPF válido/inválido, máscaras, regras por campo, cálculo de idade, formulário completo, escape de HTML nos templates, normalização de rotas, escolha do tema e existência das imagens citadas em `srcset`. A interface foi verificada no navegador (fluxo completo, `localStorage` corrompido, tentativa de XSS e rota inexistente) e com o axe-core (0 violações nas 5 rotas).
 
 ## Fluxo de trabalho (GitFlow)
 

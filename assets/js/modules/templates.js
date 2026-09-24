@@ -48,12 +48,26 @@ export const UFS = [
 ];
 
 /**
- * Imagem responsiva: WebP com JPG de reserva. A imagem principal (acima da dobra)
- * carrega com prioridade alta; as demais usam lazy loading para poupar dados.
+ * Larguras disponíveis de cada imagem WebP e o valor de "sizes" (largura que ela
+ * ocupa na tela). O navegador escolhe o arquivo mais leve que ainda fique nítido
+ * para a largura da viewport e a densidade de pixels.
+ */
+export const VARIANTES = {
+  'voluntarios-horta': { arquivos: [['-640', 640], ['', 1280]], sizes: '(min-width: 1024px) 750px, calc(100vw - 2rem)' },
+  horta: { arquivos: [['-320', 320], ['', 640]], sizes: '(min-width: 768px) 45vw, calc(100vw - 2rem)' },
+  reforco: { arquivos: [['-320', 320], ['', 640]], sizes: '(min-width: 768px) 45vw, calc(100vw - 2rem)' },
+};
+
+const srcsetWebp = (nome) => VARIANTES[nome].arquivos.map(([sufixo, largura]) => `../assets/imagens/${nome}${sufixo}.webp ${largura}w`).join(', ');
+
+/**
+ * Imagem responsiva: WebP em várias larguras (srcset + sizes) com JPG de reserva.
+ * A imagem principal (acima da dobra) carrega com prioridade alta; as demais usam
+ * lazy loading para poupar dados.
  */
 const img = (nome, alt, largura, altura, principal = false) => html`
   <picture>
-    <source srcset="../assets/imagens/${nome}.webp" type="image/webp">
+    <source srcset="${srcsetWebp(nome)}" sizes="${VARIANTES[nome].sizes}" type="image/webp">
     <img src="../assets/imagens/${nome}.jpg" alt="${alt}" width="${largura}" height="${altura}" decoding="async"
       ${new Seguro(principal ? 'fetchpriority="high"' : 'loading="lazy"')}>
   </picture>`;

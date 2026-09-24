@@ -43,6 +43,21 @@ Práticas aplicadas no HTML gerado pelos templates:
 - Texto alternativo descritivo nas imagens de conteúdo e `alt=""` no logotipo do cabeçalho (o link já tem texto).
 - Versão vetorial `logo.svg` (0,8 KB) disponível para usos escaláveis.
 
+## Imagens responsivas (`srcset` e `sizes`)
+
+Cada imagem WebP existe em mais de uma largura, e o `<source>` informa as larguras (`srcset` com descritores `w`) e o espaço que a imagem ocupa na tela (`sizes`). O navegador escolhe o menor arquivo que ainda fica nítido para a largura da janela e a densidade de pixels da tela.
+
+| Imagem | Larguras (WebP) | Espaço na tela (`sizes`) |
+|---|---|---|
+| Principal (`voluntarios-horta`) | 640w (7,8 KB) e 1280w (16,5 KB) | 750px a partir de 1024px; abaixo disso, largura da janela menos 2rem |
+| Cartões (`horta`, `reforco`) | 320w (3,1 e 2,9 KB) e 640w (6,0 e 5,4 KB) | 45% da janela a partir de 768px; abaixo disso, largura da janela menos 2rem |
+
+Como foi verificado: em um `<img>` de teste com o cache limpo, o Chrome escolheu o arquivo de 640w para espaços de até 640px e o de 1280w a partir de 700px, com densidade 1x. Em telas 2x (a maioria dos celulares) um espaço de 343px precisa de 686px reais, então o navegador pede a versão maior; a versão menor beneficia telas 1x e janelas estreitas. O `test(imagens)` garante que todo arquivo citado existe em `assets/imagens/`.
+
+Observação: o navegador pode reutilizar uma imagem que já esteja no cache, mesmo que outro tamanho fosse o ideal (permitido pela especificação); por isso medi com URLs novas.
+
+Limite conhecido: não há versões 2x e 3x dedicadas para celulares de alta densidade além dos 1280w e 640w já existentes.
+
 ## Peso da página inicial (transferência)
 
 | Recurso | Sem otimização | Com otimização |
