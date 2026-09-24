@@ -8,7 +8,7 @@ Ferramentas: **esbuild** (JavaScript e CSS) e **html-minifier-terser** (HTML). O
 
 | Arquivo | Original | Minificado | gzip | Redução |
 |---|---|---|---|---|
-| JavaScript (7 módulos ES → `main.min.js`) | 22,4 KB | 14,2 KB | 5,5 KB | 37% |
+| JavaScript (7 módulos ES → `main.min.js`) | 22,6 KB | 14,3 KB | 5,6 KB | 37% |
 | CSS (`reset.css` + `style.css` → `style.min.css`) | 20,5 KB | 14,8 KB | 3,6 KB | 28% |
 | HTML (shell da SPA) | 1,8 KB | 1,6 KB | 0,8 KB | 11% |
 
@@ -47,9 +47,9 @@ Práticas aplicadas no HTML gerado pelos templates:
 
 | Recurso | Sem otimização | Com otimização |
 |---|---|---|
-| HTML + CSS + JS | 44,7 KB | 9,9 KB (gzip) |
+| HTML + CSS + JS | 44,9 KB | 10,0 KB (gzip) |
 | Imagem principal | 66,2 KB (JPG) | 16,5 KB (WebP) |
 | Logotipo | 41,0 KB (PNG) | 6,3 KB (WebP) |
-| **Total aproximado** | **151,9 KB** | **32,7 KB** |
+| **Total aproximado** | **152,1 KB** | **32,8 KB** |
 
 Redução de cerca de 78% no peso inicial (calculado a partir dos tamanhos dos arquivos, sem contar cabeçalhos HTTP).
