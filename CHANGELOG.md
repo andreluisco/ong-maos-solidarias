@@ -2,6 +2,13 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/) e versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
+## [1.1.1] - 2026-09-24
+
+### Alterado
+
+- **Imagens responsivas:** WebP em 640w e 1280w (principal) e 320w e 640w (cartões), escolhidas pelo navegador com `srcset` e `sizes` (#20). A imagem principal em janelas de até 640px (densidade 1x) cai de 16,5 KB para 7,8 KB.
+- 3 novos testes verificam que todo arquivo citado em `srcset` existe (16 no total).
+
 ## [1.1.0] - 2026-09-24
 
 ### Adicionado
