@@ -11,6 +11,13 @@ Hospedagem escolhida: **GitHub Pages**, por ser gratuita para repositórios púb
 
 O endereço final segue o padrão `https://<usuário>.github.io/<repositório>/`. A raiz de `dist/` tem um `index.html` que redireciona para `html/index.html`, onde está a SPA.
 
+## Endereço publicado
+
+- Site: https://andreluisco.github.io/ong-maos-solidarias/ (redireciona para `html/index.html`)
+- Repositório: https://github.com/andreluisco/ong-maos-solidarias
+
+Verificação feita na URL publicada em 23/09/2026: respostas HTTP 200 com `Content-Encoding: gzip` para HTML, CSS e JS; imagem principal servida em WebP; axe-core com 0 violações nas rotas Início, Projetos, Cadastro e Voluntários; fluxo de cadastro concluído e gravado no `localStorage`; rota `#/Projetos/` (correção da v1.0.1) abrindo a tela de projetos.
+
 ## Primeira publicação (uma vez)
 
 ```bash

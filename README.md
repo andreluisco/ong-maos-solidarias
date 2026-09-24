@@ -1,5 +1,9 @@
 # Mãos Solidárias
 
+[![CI](https://github.com/andreluisco/ong-maos-solidarias/actions/workflows/ci.yml/badge.svg)](https://github.com/andreluisco/ong-maos-solidarias/actions/workflows/ci.yml)
+
+**Demonstração online:** https://andreluisco.github.io/ong-maos-solidarias/ (publicado no GitHub Pages)
+
 Plataforma web da ONG **Mãos Solidárias**: apresenta os projetos sociais, recebe cadastros de voluntários e doadores e funciona como uma **SPA (Single Page Application)** em JavaScript puro, sem frameworks.
 
 Projeto acadêmico da disciplina *Desenvolvimento Front-End para Web* (Experiências Práticas 1 a 4).
@@ -41,7 +45,7 @@ ong-maos-solidarias/
 Requisitos: Node.js 20 ou superior e Python 3 (servidor estático).
 
 ```bash
-git clone <url-do-repositório>
+git clone https://github.com/andreluisco/ong-maos-solidarias.git
 cd ong-maos-solidarias
 npm install
 npm run serve            # http://localhost:8080/html/index.html
