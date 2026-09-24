@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mãos Solidárias: ONG que transforma vidas com educação, alimentação e cidadania.">
+  <title>Mãos Solidárias</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="module" src="../assets/js/main.js"></script>
+</head>
+<body>
+  <a class="pular-link" href="#app">Pular para o conteúdo</a>
+  <header>
+    <a class="marca" href="#/">
+      <img src="../assets/imagens/logo.png" alt="" width="120" height="120">
+      <span>Mãos Solidárias</span>
+    </a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir ou fechar o menu" aria-controls="menu-principal">
+    <label for="menu-toggle" class="menu-btn"><span class="icone-menu"></span><span class="sr-only">Menu</span></label>
+    <nav aria-label="Navegação principal">
+      <ul class="menu" id="menu-principal">
+        <li><a href="#/" data-rota="/">Início</a></li>
+        <li><a href="#/projetos" data-rota="/projetos">Projetos Sociais</a></li>
+        <li><a href="#/voluntarios" data-rota="/voluntarios">Voluntários</a></li>
+        <li><a href="#/cadastro" data-rota="/cadastro">Seja voluntário</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="app" tabindex="-1">
+    <noscript><p class="alerta alerta-aviso">Este site precisa de JavaScript para exibir o conteúdo.</p></noscript>
+  </main>
+  <div id="area-toasts" aria-live="polite"></div>
+  <footer>
+    <p><small>&copy; 2026 Mãos Solidárias. CNPJ 00.000.000/0001-00</small></p>
+  </footer>
+</body>
+</html>
