@@ -1,8 +1,10 @@
 name: Deploy no GitHub Pages
 
 on:
+  # O ambiente github-pages só aceita deploys da branch main (tags são rejeitadas),
+  # e toda release/hotfix termina com merge em main.
   push:
-    tags: ['v*']
+    branches: [main]
   workflow_dispatch:
 
 permissions:
