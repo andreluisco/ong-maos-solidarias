@@ -3,7 +3,7 @@ import { definirRota, iniciarRouter, navegar } from './modules/router.js';
 import { cadastro, home, naoEncontrada, projetos, voluntarios } from './modules/templates.js';
 import { lerRascunho, listarCadastros, removerCadastro } from './modules/storage.js';
 import { iniciarFormulario } from './modules/formulario.js';
-import { marcarLinkAtivo, mostrarToast } from './modules/ui.js';
+import { anunciarRota, marcarLinkAtivo, mostrarToast } from './modules/ui.js';
 
 definirRota('/', { titulo: 'Início', view: home });
 definirRota('/projetos', { titulo: 'Projetos Sociais', view: projetos });
@@ -12,8 +12,9 @@ definirRota('/voluntarios', { titulo: 'Voluntários', view: () => voluntarios(li
 definirRota('*', { titulo: 'Página não encontrada', view: naoEncontrada });
 
 /** Executado depois de cada renderização: liga o comportamento da tela atual. */
-function aoRenderizar(caminho) {
+function aoRenderizar(caminho, rota) {
   marcarLinkAtivo(caminho);
+  anunciarRota(rota.titulo);
   if (caminho === '/cadastro') iniciarFormulario({ aoSalvar: () => navegar('/voluntarios') });
 }
 

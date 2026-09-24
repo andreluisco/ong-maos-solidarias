@@ -30,6 +30,13 @@ export function limparAlerta(seletor) {
   if (alvo) alvo.replaceChildren();
 }
 
+/** Anuncia a nova tela para leitores de tela (WCAG 4.1.3 Mensagens de status). */
+export function anunciarRota(titulo) {
+  const regiao = document.querySelector('#anuncio-rota');
+  regiao.textContent = '';
+  window.setTimeout(() => { regiao.textContent = `Página carregada: ${titulo}`; }, 50);
+}
+
 /** Marca o link do menu da rota atual com aria-current="page". */
 export function marcarLinkAtivo(caminho) {
   document.querySelectorAll('nav a[data-rota]').forEach((link) => {
