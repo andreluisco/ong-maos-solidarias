@@ -5,6 +5,7 @@
  */
 const CHAVE_CADASTROS = 'maos-solidarias:cadastros';
 const CHAVE_RASCUNHO = 'maos-solidarias:rascunho';
+const CHAVE_TEMA = 'maos-solidarias:tema';
 
 function ler(chave, padrao) {
   try {
@@ -41,6 +42,9 @@ export function adicionarCadastro(dados) {
 export function removerCadastro(id) {
   return gravar(CHAVE_CADASTROS, listarCadastros().filter((c) => c.id !== id));
 }
+
+export const lerTema = () => ler(CHAVE_TEMA, null);
+export const salvarTema = (tema) => gravar(CHAVE_TEMA, tema);
 
 export const salvarRascunho = (dados) => gravar(CHAVE_RASCUNHO, dados);
 export const lerRascunho = () => ler(CHAVE_RASCUNHO, {});
