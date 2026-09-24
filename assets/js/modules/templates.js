@@ -118,8 +118,8 @@ export function cadastro(rascunho = {}) {
           ${campo({ id: 'nome', rotulo: 'Nome completo', valor: rascunho.nome ?? '', extra: 'autocomplete="name" required' })}
           ${campo({ id: 'email', rotulo: 'E-mail', tipo: 'email', valor: rascunho.email ?? '', extra: 'autocomplete="email" required' })}
           ${campo({ id: 'cpf', rotulo: 'CPF', valor: rascunho.cpf ?? '', extra: 'inputmode="numeric" maxlength="14" placeholder="000.000.000-00" data-mascara="cpf" required' })}
-          ${campo({ id: 'telefone', rotulo: 'Telefone', tipo: 'tel', valor: rascunho.telefone ?? '', extra: 'maxlength="15" placeholder="(00) 00000-0000" data-mascara="telefone" required' })}
-          ${campo({ id: 'nascimento', rotulo: 'Data de nascimento', tipo: 'date', valor: rascunho.nascimento ?? '', extra: 'required' })}
+          ${campo({ id: 'telefone', rotulo: 'Telefone', tipo: 'tel', valor: rascunho.telefone ?? '', extra: 'autocomplete="tel" maxlength="15" placeholder="(00) 00000-0000" data-mascara="telefone" required' })}
+          ${campo({ id: 'nascimento', rotulo: 'Data de nascimento', tipo: 'date', valor: rascunho.nascimento ?? '', extra: 'autocomplete="bday" required' })}
         </fieldset>
         <fieldset>
           <legend>Endereço</legend>
@@ -127,7 +127,7 @@ export function cadastro(rascunho = {}) {
           ${campo({ id: 'cidade', rotulo: 'Cidade', valor: rascunho.cidade ?? '', extra: 'autocomplete="address-level2" required' })}
           <div class="campo">
             <label for="uf">Estado</label>
-            <select id="uf" name="uf" aria-describedby="erro-uf" required>
+            <select id="uf" name="uf" autocomplete="address-level1" aria-describedby="erro-uf" required>
               <option value="">Selecione</option>
               ${UFS.map(([sigla, nome]) => html`<option value="${sigla}" ${new Seguro(sel(sigla))}>${nome}</option>`)}
             </select>
