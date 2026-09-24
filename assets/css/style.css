@@ -289,3 +289,141 @@ figure { margin: 0 0 var(--esp-3); }
 figure img { width: 100%; border-radius: var(--raio); }
 figcaption { font-size: var(--fs-sm); color: var(--cor-texto-suave); }
 
+/* 6. Tabela de transparência -------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--cor-superficie);
+}
+
+caption {
+  padding: var(--esp-2);
+  text-align: left;
+  font-weight: 700;
+}
+
+th, td {
+  padding: var(--esp-2) var(--esp-3);
+  border: 1px solid var(--cor-borda);
+  text-align: left;
+}
+
+thead th {
+  background: var(--cor-primaria-escura);
+  color: var(--cor-superficie);
+}
+
+/* 7. Formulário ---------------------------------------------- */
+form {
+  display: grid;
+  gap: var(--esp-4);
+  max-width: 40rem;
+}
+
+fieldset {
+  display: grid;
+  gap: var(--esp-3);
+  margin: 0;
+  padding: var(--esp-4);
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+legend {
+  padding-inline: var(--esp-2);
+  font-weight: 700;
+  color: var(--cor-primaria-escura);
+}
+
+fieldset p { margin: 0; display: grid; gap: var(--esp-1); }
+
+label { font-weight: 600; }
+
+input:not([type="radio"]),
+select {
+  width: 100%;
+  padding: var(--esp-2) var(--esp-3);
+  font: inherit;
+  color: var(--cor-texto);
+  background: var(--cor-superficie);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+input:not([type="radio"]):focus,
+select:focus {
+  border-color: var(--cor-secundaria);
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 1px;
+}
+
+/* Feedback de preenchimento: só aparece depois que o usuário interage */
+input:user-invalid,
+select:user-invalid {
+  border-color: var(--cor-erro);
+  background: rgb(180 35 24 / 6%);
+}
+
+input:user-valid,
+select:user-valid {
+  border-color: var(--cor-sucesso);
+  background: rgb(20 125 74 / 6%);
+}
+
+input:disabled,
+select:disabled {
+  color: var(--cor-texto-suave);
+  background: var(--cor-fundo);
+  cursor: not-allowed;
+}
+
+fieldset:last-of-type p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--esp-2) var(--esp-4);
+}
+
+button,
+.btn {
+  justify-self: start;
+  padding: var(--esp-3) var(--esp-5);
+  font: inherit;
+  font-weight: 700;
+  color: var(--cor-superficie);
+  background: var(--cor-primaria);
+  border: 0;
+  border-radius: var(--raio);
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--cor-primaria-escura);
+  box-shadow: var(--sombra);
+}
+
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 3px;
+}
+
+button:active,
+.btn:active {
+  background: var(--cor-primaria-escura);
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+button:disabled,
+.btn:disabled {
+  color: var(--cor-texto-suave);
+  background: var(--cor-borda);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
