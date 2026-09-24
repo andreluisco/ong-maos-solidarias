@@ -811,3 +811,24 @@ select[aria-invalid="false"] {
 }
 
 .toast-fechar:hover { background: transparent; box-shadow: none; }
+
+/* 12. Acessibilidade: modo de alto contraste do sistema (Windows) --------- */
+@media (forced-colors: active) {
+  .badge,
+  .alerta,
+  .toast,
+  button,
+  .btn {
+    border: 2px solid CanvasText;
+  }
+
+  .icone-menu,
+  .icone-menu::before,
+  .icone-menu::after {
+    background: CanvasText;
+  }
+
+  [aria-invalid="true"] {
+    outline: 3px solid Mark;
+  }
+}
