@@ -11,10 +11,15 @@ export function definirRota(caminho, rota) {
   rotas.set(caminho, rota);
 }
 
-/** Converte "#/projetos" em "/projetos". Hash vazio vira "/". */
+/**
+ * Converte "#/projetos" em "/projetos". Hash vazio vira "/".
+ * Normaliza maiúsculas e barra final: "#/Projetos/" também abre "/projetos".
+ */
 export function caminhoAtual() {
   const { hash } = window.location;
-  return hash.startsWith('#/') ? hash.slice(1) : '/';
+  if (!hash.startsWith('#/')) return '/';
+  const caminho = hash.slice(1).toLowerCase();
+  return caminho.length > 1 ? caminho.replace(/\/+$/, '') || '/' : caminho;
 }
 
 /** Hashes que não começam com "#/" (ex.: #app do link "pular") não são rotas. */
